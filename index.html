@@ -1,0 +1,190 @@
+<html<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title> BM Maker</title>
+
+  <style>
+
+#cssdiv{
+
+height:100%!important;}
+
+.bmcode{
+
+height:50%;
+
+width:50%;
+
+top:10px;
+
+left:25%;
+
+position:relative;
+
+}
+
+#bmcode{
+
+height:calc(100% - 20px);
+
+width:100%;
+
+background:black;
+
+opacity:0.7;
+
+color:white;
+
+border:2px solid blue;
+
+border-radius:5px;
+
+font:12px Arial;
+
+padding:10px;
+
+}
+
+#bmbuttonrun{
+
+border:1px solid blue;
+
+position:absolute;
+
+bottom:0;
+
+right:0;
+
+border-radius:5px;
+
+}
+
+#bmbuttonclear{
+
+border:1px solid blue;
+
+position:absolute;
+
+bottom:0;
+
+left:0px;
+
+border-radius:5px;
+
+}
+
+#bmbuttonrun{
+
+border:1px solid blue;
+
+position:absolute;
+
+bottom:0;
+
+right:0;
+
+}
+
+#bmbuttonclear{
+
+border:1px solid blue;
+
+position:absolute;
+
+bottom:0;
+
+left:0px;
+
+}
+
+#bmbuttoncopy{
+
+border:1px solid blue;
+
+position:absolute;
+
+bottom:0;
+
+right:calc((100% - 8em)/2);
+
+}
+
+  </style>
+
+</head>
+
+<body>
+
+<form class='bmcode'>
+
+ <textarea id='bmcode'></textarea>
+
+<button type='submit' id='bmbuttonrun'>Run</button>
+
+<button type='submit' id='bmbuttonclear'>Clear</button>
+
+<button type='submit' id='bmbuttoncopy'>Copy BM</button>
+
+	</form>
+
+	
+
+<script>
+
+let a= document.querySelector('#bmbuttonrun');
+
+let b= document.querySelector('#bmbuttonclear');
+
+let c= document.querySelector('#bmcode');
+
+let d= document.querySelector('#bmbuttoncopy');
+
+let cvalue = localStorage.getItem('cvalue');
+
+c.value= cvalue;
+
+a.onclick=function(){
+
+let code=`try{${c.value}}catch(x){alert(x);}`;
+
+eval(code);
+
+return false;
+
+};
+
+b.onclick=function(){
+
+c.value='';
+
+return false;
+
+};
+
+d.onclick=function(){
+
+let par='javascript:'+ encodeURIComponent(`(function(){${c.value}})();`) ;
+
+navigator.clipboard.writeText(par);
+
+alert('copied');
+
+return false;
+
+};
+
+window.onunload=function(){
+
+localStorage.removeItem('cvalue');
+
+localStorage.setItem('cvalue',c.value);
+
+};
+
+</script>
+
+	
+
+</body></html>

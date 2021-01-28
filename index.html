@@ -7,18 +7,9 @@
 
   <style>
 
-#cssdiv{
-
-height:100%!important;}
-
 .bmcode{
-
 top:10px;
-
-left:25%;
-
 position:relative;
-
 }
 
 #bmcode{
@@ -112,7 +103,7 @@ right:calc((100% - 8em)/2);
 </head>
 
 <body>
-<div style='position:relative;'>
+
 <form class='bmcode'>
 
 <textarea id='bmcode'></textarea>
@@ -124,7 +115,6 @@ right:calc((100% - 8em)/2);
 <button type='button' id='bmbuttoncopy'>Copy BM</button>
 
 </form>
-</div>
 	
 
 <script>
@@ -141,10 +131,12 @@ let x= document.querySelector('.bmcode');
 if(width>height){
 x.style.height='50%';
 x.style.width='70%';
+x.style.left='15%';
 }
-else if(width<height){
+if(width<height){
 x.style.height='70%';
 x.style.width='50%';
+x.style.left='25%';
 }
 
 let a= document.querySelector('#bmbuttonrun');
@@ -165,7 +157,6 @@ let code=`try{${c.value}}catch(x){alert(x);}`;
 
 eval(code);
 
-return false;
 
 };
 
@@ -173,7 +164,6 @@ b.onclick=function(){
 
 c.value='';
 
-return false;
 
 };
 
@@ -185,7 +175,6 @@ navigator.clipboard.writeText(par);
 
 alert('copied');
 
-return false;
 
 };
 

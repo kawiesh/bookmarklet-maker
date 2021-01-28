@@ -13,10 +13,6 @@ height:100%!important;}
 
 .bmcode{
 
-height:50%;
-
-width:50%;
-
 top:10px;
 
 left:25%;
@@ -121,17 +117,35 @@ right:calc((100% - 8em)/2);
 
  <textarea id='bmcode'></textarea>
 
-<button type='submit' id='bmbuttonrun'>Run</button>
+<button type='button' id='bmbuttonrun'>Run</button>
 
-<button type='submit' id='bmbuttonclear'>Clear</button>
+<button type='button' id='bmbuttonclear'>Clear</button>
 
-<button type='submit' id='bmbuttoncopy'>Copy BM</button>
+<button type='button' id='bmbuttoncopy'>Copy BM</button>
 
 	</form>
 
 	
 
 <script>
+
+let width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+let height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+
+let x= document.querySelecror('.bmcode');
+if(width>height){
+x.style.height='50%';
+x.style.width='70%';
+}
+else if(width<height){
+x.style.height='70%';
+x.style.width='50%';
+}
 
 let a= document.querySelector('#bmbuttonrun');
 

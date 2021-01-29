@@ -9,6 +9,7 @@ outline: none;
 }
 
 button{
+font-size: 15px;
 height: 21px;
 position: absolute;
 border:2px solid yellow;

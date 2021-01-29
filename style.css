@@ -1,3 +1,9 @@
+body{
+background-image:url(/css-bookmarklet/background.jpg);
+background-repeat:repeat;
+background-size:70%;
+}
+
 textarea:focus,button:focus{
 outline: none;
 }
@@ -11,7 +17,7 @@ color: #006cff;
 }
 
 .bmcode{
-top:10px;
+top:5%;
 position:absolute;
 }
 

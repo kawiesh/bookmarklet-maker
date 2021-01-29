@@ -10,6 +10,7 @@ outline: none;
 
 button{
 font-size: 15px;
+font-weight: bold;
 height: 22px;
 position: absolute;
 border:2px solid yellow;
